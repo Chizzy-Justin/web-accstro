@@ -50,9 +50,22 @@ https://tranxferit.onrender.com -->
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.min.css" rel="stylesheet">
+  <style>
+  .portfolio-item {
+    margin-bottom: 30px;
+  }
+  .portfolio-img img {
+    /* reserve the correct aspect ratio before load */
+    aspect-ratio: 4 / 2.5;       /* adjust to your image dimensions */
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
 
   <!-- Meta Pixel Code -->
   <script>
@@ -108,7 +121,7 @@ https://tranxferit.onrender.com -->
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h1>Create Websites For Your Business</h1>
-          <h2>“Why Keep Explaining Your Business to people When a Single <span style="color: #04e292;">Link</span> Can Do the Job?”</h2>
+          <h2>“Why Keep Explaining Your Business to people When a Single <a class="scrollto" href="#about" style="color: #04e292;">Link</a> Can Do the Job?”</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#about" class="btn-get-started scrollto">Get Started</a>
             <a href="https://wa.link/9902ff" style="margin-left: 1rem;" class="btn-get-started scrollto">Message Us</a>
@@ -170,22 +183,22 @@ https://tranxferit.onrender.com -->
         </div>
 
         <div class="row content">
-          <div class="col-lg-6">
-            <p>
+          <div class="col-lg-6 text-center pb-4">
+            <p class="text-lg-start">
            You’ve spent hours on the phone explaining your busineess to a client,
             only to sense him growing impatient, because every sales call sounds like you’re begging for validation. </p>
-            <p>
+            <p class="text-lg-start">
               When you flood someone with information, prices and features, you risk sounding scattered and needy.<span style="color: #04e292;"> And trust disappears in an instant.</span>
             </p>
             
-            <p>
+            <p class="text-lg-start">
             What if one link could replace all that frantic over-explaining and instantly make you look <span style="color: #04e292;">professional, credible, </span>and <span style="color: #04e292;">trustworthy? </span>  </p>
-            <ul>
+            <ul class="text-start">
               <li><i class="ri-check-double-line"></i> Innovative Design</li>
               <li><i class="ri-check-double-line"></i> Technical Expertise</li>
               <li><i class="ri-check-double-line"></i> SEO optimization</li>
             </ul>
-            <a href="https://wa.link/9902ff" class="btn-learn-more">Learn More</a>
+            <a href="https://wa.link/9902ff" class="btn-learn-more text-center">Learn More</a>
        
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
@@ -268,7 +281,7 @@ SEO Basics: Your site will be set up to show in “near me” searches—so when
 Analytics & Tweaks: We send you simple reports: how many people visited, which pages they loved, and what needs fine-tuning.
 
 Ongoing Maintenance: Automatic backups, security updates, and monthly check-ins—no tech headaches for you.
-         -->   <div class="content"> 
+         -->   <div class="content text-center text-lg-start"> 
               <h3>We offer a <strong>Personalized Approach</strong></h3>
               <p>
                 Welcome to a world of unparalleled web development expertise. As you explore our offerings, allow us to showcase why we stand out from the crowd, making the best budget friendly offers tailored specifically to suit your needs </p>
@@ -313,7 +326,8 @@ Ongoing Maintenance: Automatic backups, security updates, and monthly check-ins�
 
           </div>
 
-          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("assets/img/why-us.png");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
+
+          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img why-us-img" style='background-image: url("assets/img/why-us.png");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
         </div>
 
       </div>
@@ -948,16 +962,90 @@ Ongoing Maintenance: Automatic backups, security updates, and monthly check-ins�
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js" defer></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js" defer></script>
-  <script src="assets/vendor/php-email-form/validate.js" defer></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.min.js" defer></script>
+  <script src="assets/js/main.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1) Grab your grid container
+    const gridElem = document.querySelector('.portfolio-container');
+
+    // 2) Initialize Isotope with Masonry
+    const iso = new Isotope(gridElem, {
+      itemSelector: '.portfolio-item',
+      percentPosition: true,
+      masonry: {
+        columnWidth: '.portfolio-item'
+      }
+    });
+
+    // 3) Filter button logic
+    document.querySelectorAll('#portfolio-flters li').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Toggle active class
+        document.querySelectorAll('#portfolio-flters li')
+                .forEach(i => i.classList.remove('filter-active'));
+        btn.classList.add('filter-active');
+
+        // Arrange items
+        const filterValue = btn.getAttribute('data-filter');
+        iso.arrange({ filter: filterValue });
+      });
+    });
+
+    // 4) imagesLoaded: prevent overlap by re‐laying out as each image loads
+    imagesLoaded(gridElem).on('progress', (instance, image) => {
+      // (Optional) log the path of each loaded image:
+      console.log('Loaded:', image.img.src);
+      // trigger a re‐layout after each image
+      iso.layout();
+    });
+
+    // 5) Final fallback: once ALL assets are loaded, do one last layout
+    window.addEventListener('load', () => {
+      iso.layout();
+    });
+  });
+</script>
+<!-- <script>
+  $(function(){
+    // 1) Initialize Isotope on the grid
+    const $grid = $('.portfolio-container').isotope({
+      itemSelector: '.portfolio-item',
+      percentPosition: true,
+      masonry: {
+        // use each item’s width as the column width
+        columnWidth: '.portfolio-item'
+      }
+    });
+
+    // 2) Bind filter button clicks
+    $('#portfolio-flters').on('click', 'li', function(){
+      $('#portfolio-flters li').removeClass('filter-active');
+      $(this).addClass('filter-active');
+      const filterValue = $(this).attr('data-filter');
+      $grid.isotope({ filter: filterValue });
+    });
+
+    // 3) As each image loads, re‑layout the grid
+    $grid.imagesLoaded().progress(function(){
+      $grid.isotope('layout');
+    });
+
+    // 4) Fallback: once everything on the page has loaded, do a final layout
+    $(window).on('load', function(){
+      $grid.isotope('layout');
+    });
+  });
+</script> -->
+
 
 </body>
 
